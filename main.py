@@ -30,3 +30,30 @@ else:
 
 #Generate a random number between 1 and 100
 answer = random.randint(1,100)
+
+#Loop through based on the number of lives left to figure out the correct number
+while no_of_lives > 0:
+  print(f"You have {no_of_lives} attempts remaining to guess the number")
+  guess = int(input("Make a guess: "))
+
+  if guess > answer:
+    print("Too high.")
+    no_of_lives -= 1
+
+    if no_of_lives == 0:
+      print("You've run out of guesses, you lose!")
+    else:
+      print("Guess again.")
+      
+  elif guess < answer:
+    print("Too low.")
+    no_of_lives -= 1
+
+    if no_of_lives == 0:
+      print("You've run out of guesses, you lose!")
+    else:
+      print("Guess again.")
+      
+  elif guess == answer:
+    print(f"You got it! The answer was {guess}")
+    no_of_lives = 0
