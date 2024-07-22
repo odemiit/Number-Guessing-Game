@@ -11,6 +11,7 @@
 # Include two different difficulty levels (e.g., 10 guesses in easy mode, only 5 guesses in hard mode).
 
 from art import logo
+import random
 
 print(logo)
 print("Welcome to the Number Guessing Game!")
@@ -26,3 +27,6 @@ elif game_difficulty == "hard":
   no_of_lives = 5
 else:
   print("You've chosen an invalid difficulty. Try again!")
+
+#Generate a random number between 1 and 100
+answer = random.randint(1,100)
