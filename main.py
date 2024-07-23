@@ -13,23 +13,29 @@
 from art import logo
 import random
 
+EASY_LEVEL_LIVES = 10
+HARD_LEVEL_LIVES = 5
+
+#Function to set the difficulty level
+def set_difficulty():
+  game_difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
+
+  #Set number of lives based on the difficulty chosen
+  if game_difficulty == "easy":
+    return EASY_LEVEL_LIVES
+  elif game_difficulty == "hard":
+    return HARD_LEVEL_LIVES
+  else:
+    print("You've chosen an invalid difficulty. Try again!")
+
+#Print out logo and welcome messages
 print(logo)
 print("Welcome to the Number Guessing Game!")
 print("I'm thinking of a number between 1 and 100.")
 
-#Ask the player to choose a difficulty
-game_difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
-
-#Set number of lives based on the difficulty chosen
-if game_difficulty == "easy":
-  no_of_lives = 10
-elif game_difficulty == "hard":
-  no_of_lives = 5
-else:
-  print("You've chosen an invalid difficulty. Try again!")
-
 #Generate a random number between 1 and 100
 answer = random.randint(1,100)
+no_of_lives = set_difficulty()
 
 #Loop through based on the number of lives left to figure out the correct number
 while no_of_lives > 0:
